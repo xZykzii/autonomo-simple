@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuota de autónomos 2026: calculadora por tramos y tabla completa | Autónomo Simple</title>
+<meta name="description" content="Calcula tu cuota de autónomos 2026 según tus rendimientos netos reales. Tabla completa de los 15 tramos del RETA, bases congeladas, MEI del 0,9 % y tarifa plana de 80 €.">
+<link rel="canonical" href="https://xzykzii.github.io/autonomo-simple/cuota-autonomos.html">
+<meta name="theme-color" content="#0f9d58">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f9d58'/><text y='72' x='50' font-size='62' text-anchor='middle' fill='white' font-family='system-ui' font-weight='bold'>A</text></svg>">
+<link rel="stylesheet" href="css/style.css?v=2">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"¿Qué son los rendimientos netos a efectos de la cuota de autónomos?","acceptedAnswer":{"@type":"Answer","text":"Son tus ingresos menos los gastos deducibles de la actividad, menos un 7 % de gastos de difícil justificación (3 % para societarios). No es tu facturación bruta."}},
+{"@type":"Question","name":"¿Cuánto dura la tarifa plana?","acceptedAnswer":{"@type":"Answer","text":"Doce meses desde el alta, prorrogables otros doce si los rendimientos netos se mantienen por debajo del salario mínimo interprofesional."}},
+{"@type":"Question","name":"¿Sube la cuota de autónomos en 2026?","acceptedAnswer":{"@type":"Answer","text":"Las bases mínimas de cotización se han prorrogado sin cambios respecto a 2025, pero el tipo de cotización pasa del 31,4 % al 31,5 % porque el Mecanismo de Equidad Intergeneracional sube del 0,8 % al 0,9 %. El resultado es una subida de entre 1 y 2 euros al mes según el tramo."}}]}
+</script>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="logo" href="index.html"><span class="logo-marca">A</span> Autónomo Simple</a>
+    <nav class="nav">
+      <a href="calculadora-iva.html">IVA</a>
+      <a href="retencion-irpf.html">IRPF</a>
+      <a href="cuota-autonomos.html">Cuota autónomos</a>
+      <a href="precio-hora.html">Precio/hora</a>
+      <a href="generador-facturas.html">Hacer una factura</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="contenedor">
+    <div class="principal">
+      <div class="miga"><a href="index.html">Inicio</a> › Cuota de autónomos</div>
+      <h1>Calculadora de la cuota de autónomos 2026</h1>
+      <p class="entradilla">Con la cotización por ingresos reales, tu cuota depende de tus <strong>rendimientos netos</strong>. Dinos cuánto ganas de verdad y te decimos qué te toca pagar este año.</p>
+    </div>
+
+    <div class="anuncio" data-slot="cabecera" data-formato="horizontal"></div>
+
+    <section style="padding-top:14px">
+      <div class="rejilla r2" id="calc-cuota" style="gap:24px;align-items:start">
+        <div class="tarjeta">
+          <div class="campo">
+            <label for="cuota-rendimiento">Rendimiento neto <span class="ayuda">— ingresos − gastos deducibles</span></label>
+            <input id="cuota-rendimiento" type="number" step="1" min="0" value="24000" inputmode="decimal">
+          </div>
+          <div class="campo">
+            <label>Ese importe es…</label>
+            <div class="pastillas" id="cuota-periodo">
+              <button type="button" class="pastilla" data-valor="1">Mensual</button>
+              <button type="button" class="pastilla on" data-valor="12">Anual</button>
+            </div>
+          </div>
+          <div class="campo">
+            <label style="display:flex;align-items:center;gap:9px;font-weight:600">
+              <input id="cuota-plana" type="checkbox" style="width:auto;margin:0">
+              Me aplico la tarifa plana (80 €/mes)
+            </label>
+          </div>
+          <p style="font-size:13px;color:var(--suave);margin:4px 0 0">Cuotas mínimas de cada tramo. Puedes cotizar por una base superior si quieres mejorar tu jubilación o tu baja por enfermedad.</p>
+        </div>
+        <div class="resultado" id="cuota-salida"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tabla de tramos del RETA 2026</h2>
+      <p class="sub">Los 15 tramos completos, con tu tramo resaltado. La cuota sale de multiplicar la base mínima por el 31,5 %; si cotizas por una base superior, pagarás más y cobrarás más el día de mañana.</p>
+      <div class="tabla-scroll"><table id="cuota-tabla"></table></div>
+      <div class="aviso"><strong>Confirma tu importe en Import@ss.</strong> Aquí ves la cuota mínima de cada tramo. La Seguridad Social regulariza al alza o a la baja cuando cruza tus datos con la declaración de la renta, así que si tu previsión se queda corta, te llegará la diferencia.</div>
+    </section>
+
+    <section>
+      <h2>Qué cambia en 2026</h2>
+      <p style="color:var(--suave);max-width:740px">Las <strong>bases mínimas se han prorrogado sin cambios</strong> respecto a 2025, así que el tramo en el que caes y la base sobre la que cotizas son los mismos. Lo que sí sube es el tipo: el <strong>Mecanismo de Equidad Intergeneracional (MEI) pasa del 0,8 % al 0,9 %</strong>, y con él el tipo total de cotización del 31,4 % al <strong>31,5 %</strong>.</p>
+      <p style="color:var(--suave);max-width:740px">Traducido a dinero: entre uno y dos euros más al mes según el tramo. No es una subida que te cambie la vida, pero explica por qué el recibo de este año no cuadra con la cifra que tenías apuntada del año pasado.</p>
+      <div class="tabla-scroll">
+        <table>
+          <thead><tr><th>Concepto</th><th class="num">2025</th><th class="num">2026</th></tr></thead>
+          <tbody>
+            <tr><td>Bases mínimas por tramo</td><td class="num">—</td><td class="num">Sin cambios</td></tr>
+            <tr><td>MEI</td><td class="num">0,80 %</td><td class="num">0,90 %</td></tr>
+            <tr><td>Tipo total de cotización</td><td class="num">31,40 %</td><td class="num">31,50 %</td></tr>
+            <tr><td>Tarifa plana</td><td class="num">80 €/mes</td><td class="num">80 €/mes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>El error que paga mucha gente</h2>
+      <p style="color:var(--suave);max-width:740px">Los rendimientos netos <strong>no son tu facturación</strong>. Son los ingresos menos los gastos deducibles y menos un 7 % adicional por gastos de difícil justificación. Quien elige tramo mirando lo que factura suele pagar de más todo el año… y quien lo elige demasiado bajo recibe la regularización con recargo. Ajusta tu previsión hasta seis veces al año desde Import@ss: es gratis y en dos minutos.</p>
+    </section>
+
+    <div class="anuncio" data-slot="inarticle" data-formato="fluid"></div>
+
+    <section>
+      <h2>Para no equivocarte de tramo</h2>
+      <p class="sub">Estos servicios calculan tus rendimientos netos reales a partir de tus facturas y gastos.</p>
+      <div data-afiliados="3"></div>
+    </section>
+
+    <section>
+      <div class="rejilla r2" style="gap:26px;align-items:center">
+        <div>
+          <h2>¿Cuánto tienes que cobrar para que salgan las cuentas?</h2>
+          <p class="sub">Mete tu cuota en la calculadora de precio por hora y verás tu tarifa mínima real.</p>
+          <a class="boton grande" href="precio-hora.html">Calcular mi precio por hora</a>
+        </div>
+        <div data-boletin></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div>
+      <a class="logo" href="index.html"><span class="logo-marca">A</span> Autónomo Simple</a>
+      <p style="color:var(--suave);font-size:14.5px;max-width:340px;margin-top:10px">Herramientas gratuitas para quien factura por su cuenta.</p>
+    </div>
+    <div>
+      <h4>Calculadoras</h4>
+      <ul>
+        <li><a href="calculadora-iva.html">Calculadora de IVA</a></li>
+        <li><a href="retencion-irpf.html">Retención de IRPF</a></li>
+        <li><a href="cuota-autonomos.html">Cuota de autónomos</a></li>
+        <li><a href="precio-hora.html">Precio por hora</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Más</h4>
+      <ul>
+        <li><a href="generador-facturas.html">Generador de facturas</a></li>
+        <li><a href="index.html#pro">Pack Autónomo Pro</a></li>
+        <li><a href="legal.html">Aviso legal y privacidad</a></li>
+      </ul>
+    </div>
+    <div class="legal" style="grid-column:1/-1">© <span data-anio></span> Autónomo Simple. Contenido informativo, no asesoramiento fiscal.</div>
+  </div>
+</footer>
+
+<script src="js/config.js?v=2"></script>
+<script src="js/app.js?v=2"></script>
+<script src="js/calculadoras.js?v=2"></script>
+</body>
+</html>

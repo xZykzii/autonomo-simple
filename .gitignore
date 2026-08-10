@@ -1,0 +1,16 @@
+# Windows / editores
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+*.swp
+
+# Nada de secretos ni notas privadas en un repo público
+*.env
+secrets*
+notas-privadas*
+
+# El plan de monetización es tuyo, no del mundo: se queda solo en tu equipo.
+# GitHub Pages sirve todo lo que hay en el repo, así que si lo subes, cualquiera
+# puede leerlo en tudominio/MONETIZACION.md
+MONETIZACION.md

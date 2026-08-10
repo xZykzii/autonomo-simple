@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de precio por hora para freelance y autónomos | Autónomo Simple</title>
+<meta name="description" content="Calcula cuánto tienes que cobrar la hora como autónomo teniendo en cuenta gastos fijos, cuota, IRPF, vacaciones y horas no facturables.">
+<link rel="canonical" href="https://xzykzii.github.io/autonomo-simple/precio-hora.html">
+<meta name="theme-color" content="#0f9d58">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f9d58'/><text y='72' x='50' font-size='62' text-anchor='middle' fill='white' font-family='system-ui' font-weight='bold'>A</text></svg>">
+<link rel="stylesheet" href="css/style.css?v=2">
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="logo" href="index.html"><span class="logo-marca">A</span> Autónomo Simple</a>
+    <nav class="nav">
+      <a href="calculadora-iva.html">IVA</a>
+      <a href="retencion-irpf.html">IRPF</a>
+      <a href="cuota-autonomos.html">Cuota autónomos</a>
+      <a href="precio-hora.html">Precio/hora</a>
+      <a href="generador-facturas.html">Hacer una factura</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="contenedor">
+    <div class="principal">
+      <div class="miga"><a href="index.html">Inicio</a> › Precio por hora</div>
+      <h1>¿Cuánto deberías cobrar la hora?</h1>
+      <p class="entradilla">La mayoría divide el sueldo que quiere entre 160 horas y se queda corto por 40 %. Aquí contamos también los gastos, la cuota, el IRPF, las vacaciones y todas las horas que trabajas pero no facturas.</p>
+    </div>
+
+    <div class="anuncio" data-slot="cabecera" data-formato="horizontal"></div>
+
+    <section style="padding-top:14px">
+      <div class="rejilla r2" id="calc-hora" style="gap:24px;align-items:start">
+        <div class="tarjeta">
+          <div class="campo">
+            <label for="h-objetivo">Lo que quieres ganar limpio al año <span class="ayuda">— después de impuestos</span></label>
+            <input id="h-objetivo" type="number" step="500" min="0" value="30000" inputmode="decimal">
+          </div>
+          <div class="fila">
+            <div class="campo">
+              <label for="h-gastos">Gastos fijos al mes <span class="ayuda">(€)</span></label>
+              <input id="h-gastos" type="number" step="10" min="0" value="350" inputmode="decimal">
+            </div>
+            <div class="campo">
+              <label for="h-cuota">Cuota de autónomos al mes</label>
+              <input id="h-cuota" type="number" step="10" min="0" value="320" inputmode="decimal">
+            </div>
+          </div>
+          <div class="fila">
+            <div class="campo">
+              <label for="h-horas">Horas al día</label>
+              <input id="h-horas" type="number" step="0.5" min="1" max="16" value="8">
+            </div>
+            <div class="campo">
+              <label for="h-dias">Días a la semana</label>
+              <input id="h-dias" type="number" step="1" min="1" max="7" value="5">
+            </div>
+          </div>
+          <div class="fila">
+            <div class="campo">
+              <label for="h-vacaciones">Semanas sin trabajar al año</label>
+              <input id="h-vacaciones" type="number" step="1" min="0" max="30" value="6">
+            </div>
+            <div class="campo">
+              <label for="h-facturable">% de horas facturables</label>
+              <input id="h-facturable" type="number" step="5" min="10" max="100" value="60">
+            </div>
+          </div>
+          <div class="campo">
+            <label for="h-irpf">Tipo medio de IRPF estimado (%)</label>
+            <input id="h-irpf" type="number" step="1" min="0" max="50" value="20">
+          </div>
+          <p style="font-size:13px;color:var(--suave);margin:4px 0 0">Un freelance a jornada completa rara vez factura más del 60-70 % de sus horas: el resto se va en presupuestos, correos, facturación, formación y clientes que no cierran.</p>
+        </div>
+        <div class="resultado" id="hora-salida"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Por qué tu tarifa parece alta y no lo es</h2>
+      <p style="color:var(--suave);max-width:740px">Un asalariado que cobra 30.000 € brutos le cuesta a su empresa unos 40.000 € y trabaja 1.760 horas pagadas, incluidas vacaciones, festivos y bajas. Tú no cobras las vacaciones, ni los festivos, ni la hora que pasas haciendo un presupuesto que no sale. Cuando un cliente te diga que 60 €/h es mucho, enséñale esta cuenta: no le estás cobrando una hora, le estás cobrando el <em>coste real</em> de tener a alguien disponible.</p>
+      <div class="aviso"><strong>Y luego súbelo.</strong> El número de arriba es tu punto de equilibrio: por debajo de ahí trabajas gratis. Añade un 20-30 % para impagos, imprevistos, invertir en herramientas y, sencillamente, ganar dinero.</div>
+    </section>
+
+    <div class="anuncio" data-slot="inarticle" data-formato="fluid"></div>
+
+    <section>
+      <h2>Controla lo que gastas de verdad</h2>
+      <p class="sub">Si no sabes tus gastos fijos exactos, tu tarifa es una adivinanza. Estos programas te los sacan solos.</p>
+      <div data-afiliados="3"></div>
+    </section>
+
+    <section>
+      <div class="rejilla r2" style="gap:26px;align-items:center">
+        <div>
+          <h2>Pásalo a presupuesto</h2>
+          <p class="sub">Ya tienes la tarifa. Ahora mándala bien presentada: crea el presupuesto o la factura en un minuto.</p>
+          <a class="boton grande" href="generador-facturas.html">Crear factura</a>
+        </div>
+        <div data-boletin></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div>
+      <a class="logo" href="index.html"><span class="logo-marca">A</span> Autónomo Simple</a>
+      <p style="color:var(--suave);font-size:14.5px;max-width:340px;margin-top:10px">Herramientas gratuitas para quien factura por su cuenta.</p>
+    </div>
+    <div>
+      <h4>Calculadoras</h4>
+      <ul>
+        <li><a href="calculadora-iva.html">Calculadora de IVA</a></li>
+        <li><a href="retencion-irpf.html">Retención de IRPF</a></li>
+        <li><a href="cuota-autonomos.html">Cuota de autónomos</a></li>
+        <li><a href="precio-hora.html">Precio por hora</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Más</h4>
+      <ul>
+        <li><a href="generador-facturas.html">Generador de facturas</a></li>
+        <li><a href="index.html#pro">Pack Autónomo Pro</a></li>
+        <li><a href="legal.html">Aviso legal y privacidad</a></li>
+      </ul>
+    </div>
+    <div class="legal" style="grid-column:1/-1">© <span data-anio></span> Autónomo Simple. Contenido informativo, no asesoramiento fiscal.</div>
+  </div>
+</footer>
+
+<script src="js/config.js?v=2"></script>
+<script src="js/app.js?v=2"></script>
+<script src="js/calculadoras.js?v=2"></script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de IVA 2026 — sumar y quitar el IVA de un importe | Autónomo Simple</title>
+<meta name="description" content="Calculadora de IVA gratis: añade o quita el 21 %, 10 % o 4 % de cualquier cantidad y obtén la base imponible, la cuota y el total desglosados.">
+<link rel="canonical" href="https://xzykzii.github.io/autonomo-simple/calculadora-iva.html">
+<meta name="theme-color" content="#0f9d58">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f9d58'/><text y='72' x='50' font-size='62' text-anchor='middle' fill='white' font-family='system-ui' font-weight='bold'>A</text></svg>">
+<link rel="stylesheet" href="css/style.css?v=2">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"¿Cómo se quita el IVA de un precio?","acceptedAnswer":{"@type":"Answer","text":"Se divide el importe total entre 1,21 si el tipo es el 21 %, entre 1,10 si es el 10 % y entre 1,04 si es el 4 %. El resultado es la base imponible y la diferencia con el total es la cuota de IVA."}},
+{"@type":"Question","name":"¿Qué tipo de IVA aplico en mis facturas?","acceptedAnswer":{"@type":"Answer","text":"El general del 21 % cubre la mayoría de servicios y productos. El reducido del 10 % se aplica a hostelería, transporte de viajeros o vivienda, y el superreducido del 4 % a pan, leche, libros y medicamentos, entre otros."}}]}
+</script>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="logo" href="index.html"><span class="logo-marca">A</span> Autónomo Simple</a>
+    <nav class="nav">
+      <a href="calculadora-iva.html">IVA</a>
+      <a href="retencion-irpf.html">IRPF</a>
+      <a href="cuota-autonomos.html">Cuota autónomos</a>
+      <a href="precio-hora.html">Precio/hora</a>
+      <a href="generador-facturas.html">Hacer una factura</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="contenedor">
+    <div class="principal">
+      <div class="miga"><a href="index.html">Inicio</a> › Calculadora de IVA</div>
+      <h1>Calculadora de IVA</h1>
+      <p class="entradilla">Escribe un importe y decide si quieres <strong>añadirle</strong> el IVA o <strong>quitárselo</strong>. Te damos la base, la cuota y el total desglosados como los pide una factura.</p>
+    </div>
+
+    <div class="anuncio" data-slot="cabecera" data-formato="horizontal"></div>
+
+    <section style="padding-top:14px">
+      <div class="rejilla r2" id="calc-iva" style="gap:24px;align-items:start">
+        <div class="tarjeta">
+          <div class="campo">
+            <label for="iva-importe">Importe</label>
+            <input id="iva-importe" type="number" step="0.01" min="0" value="1000" inputmode="decimal">
+          </div>
+          <div class="campo">
+            <label>¿Qué quieres hacer?</label>
+            <div class="pastillas" id="iva-modo">
+              <button type="button" class="pastilla on" data-valor="1">Añadir IVA</button>
+              <button type="button" class="pastilla" data-valor="0">Quitar IVA</button>
+            </div>
+          </div>
+          <div class="campo">
+            <label>Tipo de IVA</label>
+            <div class="pastillas" id="iva-tipos"></div>
+          </div>
+        </div>
+        <div class="resultado" id="iva-salida"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Cómo se calcula</h2>
+      <p style="color:var(--suave);max-width:720px">Para <strong>añadir</strong> el IVA multiplicas la base por el tipo: 1.000 € × 21 % = 210 € de cuota, total 1.210 €. Para <strong>quitarlo</strong> no restas el 21 % del total (ese es el error clásico y te deja corto): divides entre 1,21. De 1.210 € salen 1.000 € de base y 210 € de IVA.</p>
+      <div class="aviso"><strong>Recuerda:</strong> el IVA que cobras no es tuyo. Lo estás recaudando para Hacienda y lo devolverás en el modelo 303 cada trimestre. Apártalo el mismo día que cobras la factura y te ahorrarás el susto de abril.</div>
+    </section>
+
+    <section>
+      <h2>Tipos de IVA vigentes en España</h2>
+      <div class="tabla-scroll">
+        <table>
+          <thead><tr><th>Tipo</th><th>Porcentaje</th><th>Se aplica a</th></tr></thead>
+          <tbody>
+            <tr><td>General</td><td>21 %</td><td>La mayoría de servicios profesionales, productos y suministros</td></tr>
+            <tr><td>Reducido</td><td>10 %</td><td>Hostelería, transporte de viajeros, obras en vivienda, gafas graduadas</td></tr>
+            <tr><td>Superreducido</td><td>4 %</td><td>Pan, leche, huevos, frutas, libros, prensa, medicamentos</td></tr>
+            <tr><td>Exento</td><td>0 %</td><td>Formación reglada, sanidad, seguros y operaciones intracomunitarias con NIF-IVA</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="anuncio" data-slot="inarticle" data-formato="fluid"></div>
+
+    <section>
+      <h2>Que el IVA lo calcule el programa, no tú</h2>
+      <p class="sub">Si ya facturas todos los meses, merece la pena que el 303 salga solo.</p>
+      <div data-afiliados="3"></div>
+    </section>
+
+    <section>
+      <div class="rejilla r2" style="gap:26px;align-items:center">
+        <div>
+          <h2>¿Necesitas emitir la factura?</h2>
+          <p class="sub">Nuestro generador aplica el IVA por línea, añade la retención si toca y te la descarga en PDF. Gratis y sin registro.</p>
+          <a class="boton grande" href="generador-facturas.html">Crear factura</a>
+        </div>
+        <div data-boletin></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div>
+      <a class="logo" href="index.html"><span class="logo-marca">A</span> Autónomo Simple</a>
+      <p style="color:var(--suave);font-size:14.5px;max-width:340px;margin-top:10px">Herramientas gratuitas para quien factura por su cuenta.</p>
+    </div>
+    <div>
+      <h4>Calculadoras</h4>
+      <ul>
+        <li><a href="calculadora-iva.html">Calculadora de IVA</a></li>
+        <li><a href="retencion-irpf.html">Retención de IRPF</a></li>
+        <li><a href="cuota-autonomos.html">Cuota de autónomos</a></li>
+        <li><a href="precio-hora.html">Precio por hora</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Más</h4>
+      <ul>
+        <li><a href="generador-facturas.html">Generador de facturas</a></li>
+        <li><a href="index.html#pro">Pack Autónomo Pro</a></li>
+        <li><a href="legal.html">Aviso legal y privacidad</a></li>
+      </ul>
+    </div>
+    <div class="legal" style="grid-column:1/-1">© <span data-anio></span> Autónomo Simple. Contenido informativo, no asesoramiento fiscal.</div>
+  </div>
+</footer>
+
+<script src="js/config.js?v=2"></script>
+<script src="js/app.js?v=2"></script>
+<script src="js/calculadoras.js?v=2"></script>
+</body>
+</html>

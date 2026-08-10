@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generador de facturas gratis en PDF, sin registro | Autónomo Simple</title>
+<meta name="description" content="Crea facturas profesionales en PDF gratis y sin registro: varios conceptos, IVA por línea, retención de IRPF, numeración automática y guardado en tu navegador.">
+<link rel="canonical" href="https://xzykzii.github.io/autonomo-simple/generador-facturas.html">
+<meta name="theme-color" content="#0f9d58">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f9d58'/><text y='72' x='50' font-size='62' text-anchor='middle' fill='white' font-family='system-ui' font-weight='bold'>A</text></svg>">
+<link rel="stylesheet" href="css/style.css?v=2">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Generador de facturas — Autónomo Simple",
+"applicationCategory":"BusinessApplication","operatingSystem":"Web",
+"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}
+</script>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="logo" href="index.html"><span class="logo-marca">A</span> Autónomo Simple</a>
+    <nav class="nav">
+      <a href="calculadora-iva.html">IVA</a>
+      <a href="retencion-irpf.html">IRPF</a>
+      <a href="cuota-autonomos.html">Cuota autónomos</a>
+      <a href="precio-hora.html">Precio/hora</a>
+      <a href="generador-facturas.html">Hacer una factura</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="contenedor">
+    <div class="principal no-imprimir">
+      <div class="miga"><a href="index.html">Inicio</a> › Generador de facturas</div>
+      <h1>Generador de facturas</h1>
+      <p class="entradilla">Rellena, mira la vista previa y descarga el PDF. Sin registro, sin marca de agua y sin límite de facturas. Tus datos no salen de tu navegador.</p>
+    </div>
+
+    <div class="anuncio no-imprimir" data-slot="cabecera" data-formato="horizontal"></div>
+
+    <section id="generador" style="padding-top:8px">
+      <div class="editor">
+
+        <div class="panel-form">
+          <div class="tarjeta mb">
+            <h3 style="margin:0 0 14px;font-size:17px">Tus datos</h3>
+            <div class="campo"><label for="e-nombre">Nombre o razón social</label><input id="e-nombre" placeholder="Ana García Ruiz"></div>
+            <div class="fila">
+              <div class="campo"><label for="e-nif">NIF / CIF</label><input id="e-nif" placeholder="12345678Z"></div>
+              <div class="campo"><label for="e-contacto">Correo o teléfono</label><input id="e-contacto" placeholder="ana@estudio.com"></div>
+            </div>
+            <div class="campo"><label for="e-direccion">Dirección fiscal</label><textarea id="e-direccion" rows="2" placeholder="Calle Mayor 12, 3ºB&#10;28013 Madrid"></textarea></div>
+            <div class="campo"><label for="e-iban">IBAN <span class="ayuda">(aparece al pie)</span></label><input id="e-iban" placeholder="ES00 0000 0000 0000 0000 0000"></div>
+          </div>
+
+          <div class="tarjeta mb">
+            <h3 style="margin:0 0 14px;font-size:17px">Cliente</h3>
+            <div class="campo"><label for="c-nombre">Nombre o razón social</label><input id="c-nombre" placeholder="Comercial Ejemplo S.L."></div>
+            <div class="campo"><label for="c-nif">NIF / CIF</label><input id="c-nif" placeholder="B12345678"></div>
+            <div class="campo"><label for="c-direccion">Dirección fiscal</label><textarea id="c-direccion" rows="2" placeholder="Av. de la Industria 4&#10;08018 Barcelona"></textarea></div>
+          </div>
+
+          <div class="tarjeta mb">
+            <h3 style="margin:0 0 14px;font-size:17px">Factura</h3>
+            <div class="fila">
+              <div class="campo"><label for="f-numero">Número</label><input id="f-numero"></div>
+              <div class="campo"><label for="f-irpf">Retención IRPF (%)</label><input id="f-irpf" type="number" step="1" min="0" max="50" value="0"></div>
+            </div>
+            <div class="fila">
+              <div class="campo"><label for="f-fecha">Fecha</label><input id="f-fecha" type="date"></div>
+              <div class="campo"><label for="f-vencimiento">Vencimiento</label><input id="f-vencimiento" type="date"></div>
+            </div>
+            <div class="campo"><label for="f-notas">Notas al pie</label><textarea id="f-notas" rows="2"></textarea></div>
+          </div>
+
+          <div class="tarjeta mb">
+            <h3 style="margin:0 0 10px;font-size:17px">Conceptos</h3>
+            <div class="tabla-scroll">
+              <table class="lineas-factura">
+                <thead><tr>
+                  <th>Concepto</th><th>Cant.</th><th>Precio</th><th>IVA %</th><th></th>
+                </tr></thead>
+                <tbody id="lineas"></tbody>
+              </table>
+            </div>
+            <button type="button" class="boton fantasma mt" id="anadir-linea">+ Añadir concepto</button>
+          </div>
+
+          <div class="tarjeta">
+            <button type="button" class="boton bloque" id="imprimir">Descargar PDF</button>
+            <div class="rejilla r2 mt" style="gap:10px">
+              <button type="button" class="boton fantasma" id="guardar">Guardar</button>
+              <button type="button" class="boton fantasma" id="nueva">Nueva factura</button>
+            </div>
+            <div class="rejilla r2 mt" style="gap:10px">
+              <button type="button" class="boton fantasma" id="exportar">Exportar copia</button>
+              <label class="boton fantasma" style="margin:0;cursor:pointer;text-align:center;font-weight:700">
+                Importar<input type="file" id="importar" accept="application/json" class="oculto">
+              </label>
+            </div>
+            <p style="font-size:12.5px;color:var(--suave);margin:14px 0 0">Para el PDF, en el diálogo de impresión elige <strong>«Guardar como PDF»</strong> y desactiva encabezados y pies de página.</p>
+          </div>
+        </div>
+
+        <div id="previa" class="factura"></div>
+      </div>
+    </section>
+
+    <section class="no-imprimir">
+      <h2>Tus facturas guardadas</h2>
+      <p class="sub">Se guardan en este navegador y en este equipo. Exporta una copia de vez en cuando.</p>
+      <div id="historial"></div>
+      <div class="aviso"><strong>Ley antifraude y Veri*factu:</strong> este generador crea facturas correctas en contenido, pero <strong>no es un software certificado</strong>. Si tu actividad está obligada a emitir con un sistema homologado, usa esta herramienta para presupuestos y casos puntuales y emite las facturas definitivas con un programa certificado.</div>
+    </section>
+
+    <div class="anuncio no-imprimir" data-slot="inarticle" data-formato="fluid"></div>
+
+    <section class="no-imprimir">
+      <h2>Cuando facturar a mano se te quede corto</h2>
+      <p class="sub">Numeración automática, envío al cliente, recordatorios de cobro y modelos trimestrales. Todos certificados.</p>
+      <div data-afiliados="3"></div>
+    </section>
+
+    <section class="no-imprimir">
+      <div class="rejilla r2" style="gap:26px;align-items:center">
+        <div>
+          <h2>Lleva el libro de ingresos y gastos sin sufrir</h2>
+          <p class="sub">El Pack Autónomo Pro incluye la plantilla de Excel con el 303 y el 130 calculados solos, más 12 modelos de documentos.</p>
+          <a class="boton grande" href="index.html#pro">Ver el pack</a>
+        </div>
+        <div data-boletin></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div>
+      <a class="logo" href="index.html"><span class="logo-marca">A</span> Autónomo Simple</a>
+      <p style="color:var(--suave);font-size:14.5px;max-width:340px;margin-top:10px">Herramientas gratuitas para quien factura por su cuenta.</p>
+    </div>
+    <div>
+      <h4>Calculadoras</h4>
+      <ul>
+        <li><a href="calculadora-iva.html">Calculadora de IVA</a></li>
+        <li><a href="retencion-irpf.html">Retención de IRPF</a></li>
+        <li><a href="cuota-autonomos.html">Cuota de autónomos</a></li>
+        <li><a href="precio-hora.html">Precio por hora</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Más</h4>
+      <ul>
+        <li><a href="generador-facturas.html">Generador de facturas</a></li>
+        <li><a href="index.html#pro">Pack Autónomo Pro</a></li>
+        <li><a href="legal.html">Aviso legal y privacidad</a></li>
+      </ul>
+    </div>
+    <div class="legal" style="grid-column:1/-1">© <span data-anio></span> Autónomo Simple. Contenido informativo, no asesoramiento fiscal.</div>
+  </div>
+</footer>
+
+<script src="js/config.js?v=2"></script>
+<script src="js/app.js?v=2"></script>
+<script src="js/calculadoras.js?v=2"></script>
+<script src="js/facturas.js?v=2"></script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+/* Autónomo Simple — hoja de estilos única, sin dependencias externas */
+
+:root{
+  --bg:#f6f7f9;
+  --panel:#ffffff;
+  --texto:#12181f;
+  --suave:#5b6875;
+  --linea:#e3e7ec;
+  --acento:#0f9d58;
+  --acento-2:#0b7a44;
+  --acento-suave:#e7f6ee;
+  --azul:#1a56db;
+  --alerta:#b45309;
+  --alerta-bg:#fff7e6;
+  --radio:14px;
+  --sombra:0 1px 2px rgba(16,24,40,.05), 0 8px 24px rgba(16,24,40,.06);
+  --max:1140px;
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0e1116;
+    --panel:#161a21;
+    --texto:#e8ecf1;
+    --suave:#9aa6b3;
+    --linea:#252b34;
+    --acento:#2ecc71;
+    --acento-2:#25a55b;
+    --acento-suave:#12241a;
+    --azul:#6b9bff;
+    --alerta:#f0b429;
+    --alerta-bg:#241d0d;
+    --sombra:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+  }
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--texto);
+  font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--azul);text-decoration:none}
+a:hover{text-decoration:underline}
+.contenedor{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+/* ---------- Cabecera ---------- */
+.cabecera{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb, var(--panel) 88%, transparent);
+  backdrop-filter:saturate(160%) blur(10px);
+  border-bottom:1px solid var(--linea);
+}
+.cabecera .contenedor{display:flex;align-items:center;gap:24px;height:64px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:700;color:var(--texto);font-size:17px;letter-spacing:-.02em}
+.logo:hover{text-decoration:none}
+.logo-marca{
+  width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
+  background:var(--acento);color:#fff;font-weight:800;font-size:15px;
+}
+.nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.nav a{
+  color:var(--suave);font-size:14.5px;font-weight:500;
+  padding:8px 11px;border-radius:9px;
+}
+.nav a:hover{background:var(--acento-suave);color:var(--acento-2);text-decoration:none}
+.nav a.activo{color:var(--acento-2);background:var(--acento-suave)}
+@media(max-width:860px){
+  .cabecera .contenedor{height:auto;padding-top:10px;padding-bottom:10px;flex-wrap:wrap;gap:8px}
+  .nav{margin-left:0;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
+  .nav a{white-space:nowrap}
+}
+
+/* ---------- Portada ---------- */
+.hero{padding:64px 0 40px;text-align:center}
+.hero h1{
+  font-size:clamp(30px,5vw,50px);line-height:1.1;margin:0 0 16px;
+  letter-spacing:-.035em;font-weight:800;
+}
+.hero p.entradilla{font-size:clamp(17px,2.2vw,20px);color:var(--suave);max-width:620px;margin:0 auto 28px}
+.sello{
+  display:inline-flex;align-items:center;gap:7px;margin-bottom:20px;
+  background:var(--acento-suave);color:var(--acento-2);
+  padding:6px 13px;border-radius:999px;font-size:13.5px;font-weight:600;
+}
+
+/* ---------- Rejillas y tarjetas ---------- */
+.rejilla{display:grid;gap:18px}
+.r2{grid-template-columns:repeat(2,1fr)}
+.r3{grid-template-columns:repeat(3,1fr)}
+.r4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){.r3,.r4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.r2,.r3,.r4{grid-template-columns:1fr}}
+
+.tarjeta{
+  background:var(--panel);border:1px solid var(--linea);
+  border-radius:var(--radio);padding:22px;box-shadow:var(--sombra);
+}
+.tarjeta-enlace{display:block;color:inherit;transition:transform .15s ease, border-color .15s ease}
+.tarjeta-enlace:hover{text-decoration:none;transform:translateY(-2px);border-color:var(--acento)}
+.tarjeta h3{margin:10px 0 6px;font-size:18px;letter-spacing:-.01em}
+.tarjeta p{margin:0;color:var(--suave);font-size:14.5px}
+.icono{
+  width:40px;height:40px;border-radius:11px;display:grid;place-items:center;
+  background:var(--acento-suave);font-size:20px;
+}
+
+/* ---------- Secciones ---------- */
+section{padding:44px 0}
+h2{font-size:clamp(23px,3.4vw,32px);letter-spacing:-.03em;margin:0 0 8px;font-weight:800}
+h2 + .sub{color:var(--suave);margin:0 0 26px;font-size:16.5px}
+.principal{padding:32px 0 8px}
+.principal h1{font-size:clamp(27px,4.2vw,38px);letter-spacing:-.03em;margin:0 0 10px;font-weight:800}
+.principal .entradilla{color:var(--suave);font-size:17.5px;max-width:680px;margin:0 0 6px}
+.miga{font-size:13.5px;color:var(--suave);margin-bottom:14px}
+.miga a{color:var(--suave)}
+
+/* ---------- Formularios ---------- */
+.campo{margin-bottom:14px}
+label{display:block;font-size:13.5px;font-weight:600;margin-bottom:6px}
+label .ayuda{font-weight:400;color:var(--suave)}
+input,select,textarea{
+  width:100%;padding:11px 13px;font:inherit;font-size:15px;
+  color:var(--texto);background:var(--bg);
+  border:1px solid var(--linea);border-radius:10px;
+}
+input:focus,select:focus,textarea:focus{
+  outline:none;border-color:var(--acento);box-shadow:0 0 0 3px var(--acento-suave);
+}
+.fila{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:620px){.fila{grid-template-columns:1fr}}
+.pastillas{display:flex;flex-wrap:wrap;gap:8px}
+.pastilla{
+  cursor:pointer;padding:8px 13px;border-radius:999px;font-size:14px;font-weight:600;
+  border:1px solid var(--linea);background:var(--panel);color:var(--suave);
+}
+.pastilla.on{background:var(--acento);border-color:var(--acento);color:#fff}
+
+.boton{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 20px;border-radius:11px;border:1px solid transparent;
+  background:var(--acento);color:#fff;font:inherit;font-weight:700;font-size:15px;
+  cursor:pointer;transition:background .15s ease;
+}
+.boton:hover{background:var(--acento-2);text-decoration:none;color:#fff}
+.boton.fantasma{background:transparent;color:var(--texto);border-color:var(--linea)}
+.boton.fantasma:hover{background:var(--bg);color:var(--texto)}
+.boton.grande{padding:15px 28px;font-size:17px}
+.boton.bloque{width:100%}
+
+/* ---------- Resultados ---------- */
+.resultado{
+  background:linear-gradient(180deg,var(--acento-suave),transparent 90%);
+  border:1px solid var(--acento);border-radius:var(--radio);padding:22px;margin-top:6px;
+}
+.resultado .grande{font-size:clamp(30px,5vw,42px);font-weight:800;letter-spacing:-.03em;color:var(--acento-2);line-height:1.1}
+.resultado .etiqueta{font-size:13.5px;color:var(--suave);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+.desglose{margin-top:16px;border-top:1px dashed var(--linea);padding-top:12px}
+.desglose .linea{display:flex;justify-content:space-between;gap:16px;padding:6px 0;font-size:15px}
+.desglose .linea span:first-child{color:var(--suave)}
+.desglose .linea strong{font-variant-numeric:tabular-nums}
+.desglose .linea.total{border-top:1px solid var(--linea);margin-top:8px;padding-top:12px;font-size:17px}
+
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--linea)}
+th{font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--suave)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tabla-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+.aviso{
+  background:var(--alerta-bg);border:1px solid color-mix(in srgb,var(--alerta) 35%,transparent);
+  color:var(--texto);border-radius:12px;padding:14px 16px;font-size:14px;margin:18px 0;
+}
+.aviso strong{color:var(--alerta)}
+
+/* ---------- Afiliados ---------- */
+.afiliado{position:relative;display:flex;flex-direction:column}
+.afiliado .etiqueta-cinta{
+  position:absolute;top:-10px;right:16px;background:var(--azul);color:#fff;
+  font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.02em;
+}
+.afiliado h3{margin:0 0 4px;font-size:19px}
+.afiliado .titular{font-size:14px;color:var(--acento-2);font-weight:600;margin:0 0 8px}
+.afiliado p{flex:1;margin-bottom:16px}
+.nota-afiliado{font-size:12.5px;color:var(--suave);text-align:center;margin-top:14px}
+
+/* ---------- Producto Pro ---------- */
+.pro{
+  background:var(--panel);border:2px solid var(--acento);border-radius:18px;
+  padding:30px;box-shadow:var(--sombra);
+}
+.pro .precio{display:flex;align-items:baseline;gap:10px;margin:6px 0 16px}
+.pro .precio b{font-size:40px;letter-spacing:-.03em}
+.pro .precio s{color:var(--suave)}
+.pro ul{list-style:none;padding:0;margin:0 0 22px}
+.pro ul li{padding:7px 0 7px 28px;position:relative;font-size:15px}
+.pro ul li::before{
+  content:"✓";position:absolute;left:0;top:7px;color:var(--acento);font-weight:800;
+}
+
+/* ---------- Newsletter ---------- */
+.boletin{
+  background:var(--panel);border:1px solid var(--linea);border-radius:var(--radio);
+  padding:26px;text-align:center;box-shadow:var(--sombra);
+}
+.boletin form{display:flex;gap:10px;max-width:460px;margin:16px auto 8px}
+@media(max-width:560px){.boletin form{flex-direction:column}}
+
+/* ---------- Anuncios ---------- */
+.anuncio{margin:26px 0;text-align:center;min-height:0}
+.anuncio:empty{display:none}
+.anuncio-etiqueta{font-size:11px;color:var(--suave);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+
+/* ---------- FAQ ---------- */
+details{
+  background:var(--panel);border:1px solid var(--linea);border-radius:12px;
+  padding:14px 18px;margin-bottom:10px;
+}
+details summary{cursor:pointer;font-weight:650;font-size:16px;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";float:right;color:var(--acento);font-weight:800}
+details[open] summary::after{content:"−"}
+details p{color:var(--suave);margin:10px 0 2px;font-size:15px}
+
+/* ---------- Pie ---------- */
+.pie{border-top:1px solid var(--linea);margin-top:48px;padding:34px 0;background:var(--panel)}
+.pie .contenedor{display:grid;grid-template-columns:2fr 1fr 1fr;gap:28px}
+@media(max-width:760px){.pie .contenedor{grid-template-columns:1fr}}
+.pie h4{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--suave);margin:0 0 10px}
+.pie ul{list-style:none;padding:0;margin:0}
+.pie li{margin-bottom:7px;font-size:14.5px}
+.pie .legal{border-top:1px solid var(--linea);margin-top:26px;padding-top:18px;font-size:13px;color:var(--suave)}
+
+/* ---------- Consentimiento cookies ---------- */
+.cookies{
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:100;max-width:560px;margin:0 auto;
+  background:var(--panel);border:1px solid var(--linea);border-radius:14px;
+  padding:18px;box-shadow:0 12px 40px rgba(0,0,0,.22);font-size:14px;
+}
+.cookies .acciones{display:flex;gap:10px;margin-top:14px}
+.cookies .boton{padding:9px 16px;font-size:14px}
+
+/* ---------- Generador de facturas ---------- */
+.editor{display:grid;grid-template-columns:minmax(320px,420px) 1fr;gap:24px;align-items:start}
+@media(max-width:980px){.editor{grid-template-columns:1fr}}
+.lineas-factura{width:100%;border-collapse:collapse}
+.lineas-factura input{padding:8px 9px;font-size:14px}
+.lineas-factura td{padding:4px;border:0}
+.borrar-linea{
+  background:transparent;border:1px solid var(--linea);color:var(--suave);
+  border-radius:8px;width:32px;height:36px;cursor:pointer;font-size:16px;
+}
+.borrar-linea:hover{border-color:#e5484d;color:#e5484d}
+
+.factura{
+  background:#fff;color:#12181f;border:1px solid var(--linea);border-radius:var(--radio);
+  padding:40px;box-shadow:var(--sombra);
+}
+.factura a{color:#12181f}
+.factura .cab{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin-bottom:28px}
+.factura .cab h2{margin:0;font-size:30px;color:#0f9d58}
+.factura .partes{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:26px}
+.factura .parte h4{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:#5b6875;margin:0 0 6px}
+.factura .parte div{font-size:14px;line-height:1.55;white-space:pre-line}
+.factura table th{color:#5b6875;border-bottom:1px solid #e3e7ec}
+.factura table td{border-bottom:1px solid #f0f2f5}
+.factura .totales{margin-left:auto;max-width:320px;margin-top:18px}
+.factura .totales .linea{display:flex;justify-content:space-between;padding:5px 0;font-size:15px}
+.factura .totales .linea.total{border-top:2px solid #12181f;margin-top:8px;padding-top:10px;font-size:19px;font-weight:800}
+.factura .pie-factura{margin-top:30px;padding-top:16px;border-top:1px solid #e3e7ec;font-size:12.5px;color:#5b6875;white-space:pre-line}
+
+/* ---------- Impresión: sale solo la factura ---------- */
+@media print{
+  @page{size:A4;margin:14mm}
+  body{background:#fff}
+  .cabecera,.pie,.anuncio,.no-imprimir,.cookies,.editor > .panel-form{display:none !important}
+  .editor{display:block}
+  .factura{border:0;box-shadow:none;padding:0;border-radius:0}
+  .contenedor{padding:0;max-width:none}
+}
+
+.oculto{display:none !important}
+.centro{text-align:center}
+.mt{margin-top:22px}
+.mb{margin-bottom:22px}
