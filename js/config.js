@@ -36,7 +36,7 @@ window.ADS = {
    2) ANALÍTICA (opcional, para saber qué página gana dinero)
    Pon tu ID de Google Analytics 4 (G-XXXXXXX) o déjalo vacío.
    ------------------------------------------------------------------------- */
-window.ANALYTICS = { ga4: '' };
+window.ANALYTICS = { ga4: 'G-8P00CHX189' };
 
 /* -------------------------------------------------------------------------
    3) AFILIACIÓN  ← la fuente de ingresos más rentable de este sitio
