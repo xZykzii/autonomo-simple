@@ -103,8 +103,12 @@ window.PRO = {
   checkout: ''   // <-- pega aquí tu enlace de pago (Gumroad, Lemon Squeezy, Flow, Webpay)
 };
 
+/* Mismo formulario de Google que la sección española: una sola lista.
+   Solo cambia el gancho, para que hable el idioma de acá. */
 window.NEWSLETTER = {
   activo: true,
-  action: '',
-  gancho: 'Recibe la guía "Cómo dejar de perder plata con tus boletas de honorarios" (PDF gratis)'
+  tipo: 'google-forms',
+  action: 'https://docs.google.com/forms/d/e/1FAIpQLScvuLREgUstRatZ5xuSwNH_-RSLSj-5pXypRtdX2oHOCcW4jw/formResponse',
+  campoEmail: 'entry.1076558109',
+  gancho: 'Te aviso cuando cambie la retención, las cotizaciones o la Operación Renta'
 };

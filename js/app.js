@@ -140,23 +140,44 @@
     var cont = $('[data-boletin]');
     if (!cont || !(window.NEWSLETTER || {}).activo) return;
     var n = window.NEWSLETTER;
+    var esGoogle = n.tipo === 'google-forms';
+    var campo = esGoogle ? n.campoEmail : 'email';
+
     var caja = el('div', { class: 'boletin' });
     caja.innerHTML =
       '<h3 style="margin:0 0 4px;font-size:21px;letter-spacing:-.02em">' + n.gancho + '</h3>' +
-      '<p style="color:var(--suave);margin:0;font-size:15px">Un correo al mes con plazos, cambios fiscales y trucos. Sin spam.</p>' +
-      '<form' + (n.action ? ' action="' + n.action + '" method="POST"' : '') + '>' +
-      '<input type="email" name="email" required placeholder="tu@correo.com" aria-label="Tu correo">' +
-      '<button class="boton" type="submit">Quiero la guía</button></form>' +
+      '<p style="color:var(--suave);margin:0;font-size:15px">Un correo al mes como mucho. Sin spam y sin reenviar tu dirección a nadie.</p>' +
+      // Con Google Forms el envío lo hacemos por JavaScript para no sacar al
+      // visitante de la página; con cualquier otro servicio, envío normal.
+      '<form' + (n.action && !esGoogle ? ' action="' + n.action + '" method="POST"' : '') + '>' +
+      '<input type="email" name="' + campo + '" required placeholder="tu@correo.com" aria-label="Tu correo">' +
+      '<button class="boton" type="submit">Apuntarme</button></form>' +
       '<p style="font-size:12.5px;color:var(--suave);margin:0">Puedes darte de baja cuando quieras.</p>';
     cont.appendChild(caja);
 
-    caja.querySelector('form').addEventListener('submit', function (ev) {
+    var form = caja.querySelector('form');
+    form.addEventListener('submit', function (ev) {
       evento('alta_boletin', {});
+
       if (!n.action) {
         ev.preventDefault();
-        alert('Falta configurar el formulario.\n\nCrea uno gratis en Formspree o Buttondown y pega la URL en js/config.js → window.NEWSLETTER.action');
+        alert('Falta configurar el formulario.\n\nPega la URL en js/config.js → window.NEWSLETTER.action');
+        return;
       }
+      if (!esGoogle) return;
+
+      ev.preventDefault();
+      // Google Forms no devuelve cabeceras CORS: la petición se envía en modo
+      // no-cors y no se puede leer la respuesta, así que confirmamos igual.
+      fetch(n.action, { method: 'POST', mode: 'no-cors', body: new FormData(form) })
+        .then(confirmar, confirmar);
     });
+
+    function confirmar() {
+      caja.innerHTML =
+        '<h3 style="margin:0 0 6px;font-size:21px;letter-spacing:-.02em">Apuntado ✓</h3>' +
+        '<p style="color:var(--suave);margin:0;font-size:15px">Te escribiré cuando haya algo que de verdad te sirva: cambios de tipos, plazos o cifras nuevas. Nada más.</p>';
+    }
   }
 
   /* ---------------- navegación y pie ---------------- */

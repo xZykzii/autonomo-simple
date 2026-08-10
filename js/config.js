@@ -100,10 +100,17 @@ window.PRO = {
    Crea un formulario gratis en Formspree, Buttondown o MailerLite
    y pega la URL de "action" del formulario.
    ------------------------------------------------------------------------- */
+/* Recoge los correos en un Google Form (hoja de cálculo en tu Drive).
+   No envía correos: solo acumula la lista. Cuando tengas suscriptores de
+   verdad, migra a Buttondown o MailerLite y cambia `tipo` y `action`.
+   El gancho promete solo lo que hoy se puede cumplir: en cuanto tengas
+   escrita la guía en PDF, cámbialo por ella y entrégala en el primer correo. */
 window.NEWSLETTER = {
   activo: true,
-  action: '',                  // <-- https://formspree.io/f/xxxxxxx
-  gancho: 'Recibe la guía "17 gastos deducibles que casi nadie se aplica" (PDF gratis)'
+  tipo: 'google-forms',
+  action: 'https://docs.google.com/forms/d/e/1FAIpQLScvuLREgUstRatZ5xuSwNH_-RSLSj-5pXypRtdX2oHOCcW4jw/formResponse',
+  campoEmail: 'entry.1076558109',
+  gancho: 'Te aviso cuando cambien los tipos, los plazos o la cuota de autónomos'
 };
 
 /* -------------------------------------------------------------------------
