@@ -69,6 +69,11 @@ a:hover{text-decoration:underline}
 }
 .nav a:hover{background:var(--acento-suave);color:var(--acento-2);text-decoration:none}
 .nav a.activo{color:var(--acento-2);background:var(--acento-suave)}
+.nav a.pais{
+  border:1px solid var(--linea);margin-left:6px;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.nav a.pais:hover{border-color:var(--acento)}
 @media(max-width:860px){
   .cabecera .contenedor{height:auto;padding-top:10px;padding-bottom:10px;flex-wrap:wrap;gap:8px}
   .nav{margin-left:0;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
