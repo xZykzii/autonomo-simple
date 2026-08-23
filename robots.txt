@@ -1,3 +1,9 @@
+# OJO: mientras el sitio viva en xzykzii.github.io/autonomo-simple/, este
+# archivo NO lo lee ningún rastreador. Google solo abre el robots.txt de la
+# raíz del dominio, que está en el repo xZykzii.github.io y es el que declara
+# de verdad el sitemap. Este queda listo para el día que haya dominio propio
+# y el sitio pase a estar en la raíz.
+
 User-agent: *
 Allow: /
 

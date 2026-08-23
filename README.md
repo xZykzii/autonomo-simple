@@ -79,6 +79,10 @@ las borres** hasta que Search Console deje de reportar las URLs viejas.
 - **Search Console** sobre `https://xzykzii.github.io/autonomo-simple/` — la
   fuente que importa: impresiones y posición media dicen si esto avanza mucho
   antes que las visitas.
+- **El `robots.txt` que cuenta no está en este repo.** Los rastreadores solo
+  leen el de la raíz del dominio, o sea `xzykzii.github.io/robots.txt`, que
+  vive en el repo `xZykzii.github.io`. Ahí está declarado el sitemap. El
+  `robots.txt` de esta carpeta no lo abre nadie hasta que haya dominio propio.
 
 ## Monetización
 
