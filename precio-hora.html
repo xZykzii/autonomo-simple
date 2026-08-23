@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calculadora de precio por hora para freelance y autónomos | Autónomo Simple</title>
-<meta name="description" content="Calcula cuánto tienes que cobrar la hora como autónomo teniendo en cuenta gastos fijos, cuota, IRPF, vacaciones y horas no facturables.">
+<title>Cuánto cobrar la hora como independiente en Chile — calculadora</title>
+<meta name="description" content="Calcula tu precio por hora como freelance en Chile contando gastos fijos, cotizaciones previsionales, vacaciones y horas no facturables.">
 <link rel="canonical" href="https://xzykzii.github.io/autonomo-simple/precio-hora.html">
+<link rel="alternate" hreflang="es-cl" href="https://xzykzii.github.io/autonomo-simple/precio-hora.html">
+<link rel="alternate" hreflang="es-es" href="https://xzykzii.github.io/autonomo-simple/es/precio-hora.html">
+<link rel="alternate" hreflang="x-default" href="https://xzykzii.github.io/autonomo-simple/precio-hora.html">
 <meta name="theme-color" content="#0f9d58">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f9d58'/><text y='72' x='50' font-size='62' text-anchor='middle' fill='white' font-family='system-ui' font-weight='bold'>A</text></svg>">
-<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f9d58'/><text y='72' x='50' font-size='62' text-anchor='middle' fill='white' font-family='system-ui' font-weight='bold'>H</text></svg>">
+<link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
 
 <header class="cabecera">
   <div class="contenedor">
-    <a class="logo" href="index.html"><span class="logo-marca">A</span> Autónomo Simple</a>
+    <a class="logo" href="index.html"><span class="logo-marca">H</span> Honorarios Simple</a>
     <nav class="nav">
-      <a href="calculadora-iva.html">IVA</a>
-      <a href="retencion-irpf.html">IRPF</a>
-      <a href="cuota-autonomos.html">Cuota autónomos</a>
+      <a href="boleta-honorarios.html">Boleta de honorarios</a>
+      <a href="retencion-honorarios.html">Retención</a>
+      <a href="operacion-renta.html">Operación Renta</a>
+      <a href="gastos-honorarios.html">Gastos</a>
       <a href="precio-hora.html">Precio/hora</a>
-      <a href="generador-facturas.html">Hacer una factura</a>
-      <a href="cl/index.html" class="pais">Ver Chile</a>
+      <a href="guia-boleta-honorarios.html">Guía</a>
     </nav>
   </div>
 </header>
@@ -29,29 +32,23 @@
 <main>
   <div class="contenedor">
     <div class="principal">
-      <div class="miga"><a href="index.html">Inicio</a> › Precio por hora</div>
+      <div class="miga"><a href="index.html">Chile</a> › Precio por hora</div>
       <h1>¿Cuánto deberías cobrar la hora?</h1>
-      <p class="entradilla">La mayoría divide el sueldo que quiere entre 160 horas y se queda corto por 40 %. Aquí contamos también los gastos, la cuota, el IRPF, las vacaciones y todas las horas que trabajas pero no facturas.</p>
+      <p class="entradilla">Casi todo el mundo divide el sueldo que quiere entre 160 horas y se queda corto. Aquí contamos también los gastos, las cotizaciones, las vacaciones y todas las horas que trabajas pero no facturas.</p>
     </div>
 
     <div class="anuncio" data-slot="cabecera" data-formato="horizontal"></div>
 
     <section style="padding-top:14px">
-      <div class="rejilla r2" id="calc-hora" style="gap:24px;align-items:start">
+      <div class="rejilla r2" id="calc-hora-cl" style="gap:24px;align-items:start">
         <div class="tarjeta">
           <div class="campo">
-            <label for="h-objetivo">Lo que quieres ganar limpio al año <span class="ayuda">— después de impuestos</span></label>
-            <input id="h-objetivo" type="number" step="500" min="0" value="30000" inputmode="decimal">
+            <label for="h-objetivo">Lo que quieres ganar limpio al mes</label>
+            <input id="h-objetivo" type="number" step="50000" min="0" value="1200000" inputmode="numeric">
           </div>
-          <div class="fila">
-            <div class="campo">
-              <label for="h-gastos">Gastos fijos al mes <span class="ayuda">(€)</span></label>
-              <input id="h-gastos" type="number" step="10" min="0" value="350" inputmode="decimal">
-            </div>
-            <div class="campo">
-              <label for="h-cuota">Cuota de autónomos al mes</label>
-              <input id="h-cuota" type="number" step="10" min="0" value="320" inputmode="decimal">
-            </div>
+          <div class="campo">
+            <label for="h-gastos">Gastos fijos al mes <span class="ayuda">— internet, software, arriendo, movilización</span></label>
+            <input id="h-gastos" type="number" step="10000" min="0" value="200000" inputmode="numeric">
           </div>
           <div class="fila">
             <div class="campo">
@@ -66,43 +63,39 @@
           <div class="fila">
             <div class="campo">
               <label for="h-vacaciones">Semanas sin trabajar al año</label>
-              <input id="h-vacaciones" type="number" step="1" min="0" max="30" value="6">
+              <input id="h-vacaciones" type="number" step="1" min="0" max="30" value="4">
             </div>
             <div class="campo">
               <label for="h-facturable">% de horas facturables</label>
               <input id="h-facturable" type="number" step="5" min="10" max="100" value="60">
             </div>
           </div>
-          <div class="campo">
-            <label for="h-irpf">Tipo medio de IRPF estimado (%)</label>
-            <input id="h-irpf" type="number" step="1" min="0" max="50" value="20">
-          </div>
-          <p style="font-size:13px;color:var(--suave);margin:4px 0 0">Un freelance a jornada completa rara vez factura más del 60-70 % de sus horas: el resto se va en presupuestos, correos, facturación, formación y clientes que no cierran.</p>
+          <p style="font-size:13px;color:var(--suave);margin:4px 0 0">Un freelance a jornada completa rara vez factura más del 60-70 % de sus horas: el resto se va en cotizaciones, propuestas, correos y clientes que no cierran.</p>
         </div>
-        <div class="resultado" id="hora-salida"></div>
+        <div class="resultado" id="h-salida-cl"></div>
       </div>
     </section>
 
     <section>
-      <h2>Por qué tu tarifa parece alta y no lo es</h2>
-      <p style="color:var(--suave);max-width:740px">Un asalariado que cobra 30.000 € brutos le cuesta a su empresa unos 40.000 € y trabaja 1.760 horas pagadas, incluidas vacaciones, festivos y bajas. Tú no cobras las vacaciones, ni los festivos, ni la hora que pasas haciendo un presupuesto que no sale. Cuando un cliente te diga que 60 €/h es mucho, enséñale esta cuenta: no le estás cobrando una hora, le estás cobrando el <em>coste real</em> de tener a alguien disponible.</p>
-      <div class="aviso"><strong>Y luego súbelo.</strong> El número de arriba es tu punto de equilibrio: por debajo de ahí trabajas gratis. Añade un 20-30 % para impagos, imprevistos, invertir en herramientas y, sencillamente, ganar dinero.</div>
+      <h2>Por qué tu tarifa parece cara y no lo es</h2>
+      <p style="color:var(--suave);max-width:740px">Alguien con contrato tiene vacaciones pagadas, licencias médicas, seguro de cesantía y un empleador que le paga la mitad del cuento. Tú no cobras las vacaciones, ni los feriados, ni la hora que te pasas armando una propuesta que no sale, y las cotizaciones salen íntegras de tu bolsillo.</p>
+      <div class="aviso"><strong>Este número es tu piso, no tu tarifa.</strong> Por debajo de ahí estás trabajando gratis. Agrégale un 20-30 % para imprevistos, clientes que pagan tarde y, sencillamente, para ganar plata.</div>
     </section>
 
     <div class="anuncio" data-slot="inarticle" data-formato="fluid"></div>
 
     <section>
       <h2>Controla lo que gastas de verdad</h2>
-      <p class="sub">Si no sabes tus gastos fijos exactos, tu tarifa es una adivinanza. Estos programas te los sacan solos.</p>
+      <p class="sub">Si no sabes tus gastos fijos exactos, tu tarifa es una adivinanza.</p>
       <div data-afiliados="3"></div>
     </section>
 
     <section>
       <div class="rejilla r2" style="gap:26px;align-items:center">
         <div>
-          <h2>Pásalo a presupuesto</h2>
-          <p class="sub">Ya tienes la tarifa. Ahora mándala bien presentada: crea el presupuesto o la factura en un minuto.</p>
-          <a class="boton grande" href="generador-facturas.html">Crear factura</a>
+          <h2>Pásalo a boleta</h2>
+          <p class="sub">Ya tienes la tarifa. Ahora mira cuánto tienes que emitir para que te llegue esa plata líquida.</p>
+          <a class="boton grande" href="boleta-honorarios.html">Calcular mi boleta</a>
         </div>
         <div data-boletin></div>
       </div>
@@ -113,33 +106,41 @@
 <footer class="pie">
   <div class="contenedor">
     <div>
-      <a class="logo" href="index.html"><span class="logo-marca">A</span> Autónomo Simple</a>
-      <p style="color:var(--suave);font-size:14.5px;max-width:340px;margin-top:10px">Herramientas gratuitas para quien factura por su cuenta.</p>
+      <a class="logo" href="index.html"><span class="logo-marca">H</span> Honorarios Simple</a>
+      <p style="color:var(--suave);font-size:14.5px;max-width:340px;margin-top:10px">Calculadoras gratuitas para quien trabaja a honorarios en Chile. Todo se calcula en tu navegador.</p>
     </div>
     <div>
       <h4>Calculadoras</h4>
       <ul>
-        <li><a href="calculadora-iva.html">Calculadora de IVA</a></li>
-        <li><a href="retencion-irpf.html">Retención de IRPF</a></li>
-        <li><a href="cuota-autonomos.html">Cuota de autónomos</a></li>
+        <li><a href="boleta-honorarios.html">Boleta de honorarios</a></li>
+        <li><a href="retencion-honorarios.html">Retención de honorarios</a></li>
+        <li><a href="operacion-renta.html">Operación Renta y cotizaciones</a></li>
         <li><a href="precio-hora.html">Precio por hora</a></li>
+        <li><a href="calculadora-iva.html">Calculadora de IVA 19 %</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Guías</h4>
+      <ul>
+        <li><a href="guia-boleta-honorarios.html">Cómo funciona la boleta</a></li>
+        <li><a href="gastos-honorarios.html">Gastos que puedes rebajar</a></li>
+        <li><a href="https://www.sii.cl/destacados/boletas_honorarios/" rel="nofollow noopener" target="_blank">Emitir boleta en el SII</a></li>
       </ul>
     </div>
     <div>
       <h4>Más</h4>
       <ul>
-        <li><a href="generador-facturas.html">Generador de facturas</a></li>
-        <li><a href="index.html#pro">Pack Autónomo Pro</a></li>
-        <li><a href="cl/index.html">Versión Chile</a></li>
         <li><a href="legal.html">Aviso legal y privacidad</a></li>
+        <li><a href="es/index.html">Versión España</a></li>
       </ul>
     </div>
-    <div class="legal" style="grid-column:1/-1">© <span data-anio></span> Autónomo Simple. Contenido informativo, no asesoramiento fiscal.</div>
+    <div class="legal" style="grid-column:1/-1">© <span data-anio></span> Honorarios Simple. Contenido informativo, no asesoría tributaria.</div>
   </div>
 </footer>
 
-<script src="js/config.js?v=4"></script>
-<script src="js/app.js?v=4"></script>
-<script src="js/calculadoras.js?v=4"></script>
+<script src="js/config.js?v=5"></script>
+<script src="js/config-cl.js?v=5"></script>
+<script src="js/app.js?v=5"></script>
+<script src="js/calculadoras-cl.js?v=5"></script>
 </body>
 </html>

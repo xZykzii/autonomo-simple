@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de boleta de honorarios 2026 — retención 15,25 % (y 2025, 2027 y 2028)</title>
+<meta name="description" content="Calcula el líquido de tu boleta de honorarios con la retención de 2026 (15,25 %) o de cualquier año entre 2024 y 2028, o averigua cuánto emitir para recibir el monto que necesitas.">
+<link rel="canonical" href="https://xzykzii.github.io/autonomo-simple/boleta-honorarios.html">
+<meta name="theme-color" content="#0f9d58">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f9d58'/><text y='72' x='50' font-size='62' text-anchor='middle' fill='white' font-family='system-ui' font-weight='bold'>H</text></svg>">
+<link rel="stylesheet" href="css/style.css?v=5">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"¿Cuánto es la retención de boleta de honorarios en 2026?","acceptedAnswer":{"@type":"Answer","text":"El 15,25 % del monto bruto. La ley 21.133 subió la tasa por tramos: 14,5 % en 2025, 15,25 % en 2026, 16 % en 2027 y 17 % en 2028."}},
+{"@type":"Question","name":"¿Cuánto debo emitir para recibir un monto líquido determinado?","acceptedAnswer":{"@type":"Answer","text":"Se divide el líquido que quieres recibir entre 0,8475 en 2026. Por ejemplo, para recibir 500.000 pesos líquidos debes emitir una boleta por aproximadamente 590.000 pesos."}}]}
+</script>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="logo" href="index.html"><span class="logo-marca">H</span> Honorarios Simple</a>
+    <nav class="nav">
+      <a href="boleta-honorarios.html">Boleta de honorarios</a>
+      <a href="retencion-honorarios.html">Retención</a>
+      <a href="operacion-renta.html">Operación Renta</a>
+      <a href="gastos-honorarios.html">Gastos</a>
+      <a href="precio-hora.html">Precio/hora</a>
+      <a href="guia-boleta-honorarios.html">Guía</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="contenedor">
+    <div class="principal">
+      <div class="miga"><a href="index.html">Chile</a> › Boleta de honorarios</div>
+      <h1>Calculadora de boleta de honorarios 2026</h1>
+      <p class="entradilla">Funciona en los dos sentidos: pon el monto bruto y te decimos cuánto recibes, o pon lo que necesitas recibir y te decimos por cuánto emitir. Puedes cambiar el año si estás revisando boletas antiguas.</p>
+    </div>
+
+    <div class="anuncio" data-slot="cabecera" data-formato="horizontal"></div>
+
+    <section style="padding-top:14px">
+      <div class="rejilla r2" id="calc-boleta" style="gap:24px;align-items:start">
+        <div class="tarjeta">
+          <div class="campo">
+            <label>¿Qué sabes?</label>
+            <div class="pastillas" id="b-modo">
+              <button type="button" class="pastilla on" data-valor="1">Sé el monto bruto</button>
+              <button type="button" class="pastilla" data-valor="0">Sé lo que quiero recibir</button>
+            </div>
+          </div>
+          <div class="campo">
+            <label for="b-monto">Monto en pesos</label>
+            <input id="b-monto" type="number" step="1000" min="0" value="1000000" inputmode="numeric">
+          </div>
+          <div class="campo">
+            <label>Año de la boleta <span class="ayuda">— la retención sube cada año</span></label>
+            <div class="pastillas" id="b-anio"></div>
+          </div>
+          <p style="font-size:13px;color:var(--suave);margin:4px 0 0">La retención la aplica quien te paga, no tú: te deposita el líquido y entera el resto al SII a tu nombre.</p>
+        </div>
+        <div class="resultado" id="b-salida"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Cómo se calcula</h2>
+      <p style="color:var(--suave);max-width:740px">Si emites una boleta por <strong>$1.000.000</strong>, quien te contrata retiene el 15,25 % —es decir <strong>$152.500</strong>— y te deposita <strong>$847.500</strong>. Esa retención la entera el pagador al SII a tu nombre, no te la está quitando.</p>
+      <p style="color:var(--suave);max-width:740px">Al revés funciona igual pero dividiendo: si necesitas recibir $500.000 líquidos, tienes que emitir por $500.000 ÷ 0,8475, o sea unos <strong>$590.000</strong>. El error clásico es sumarle un 15,25 % al líquido, y con eso te quedas corto.</p>
+      <div class="aviso"><strong>Ojo con el flujo de caja:</strong> ese 15,25 % no lo ves hasta la Operación Renta del año siguiente, y ahí se va primero a pagar tus cotizaciones. Si presupuestas contando con esa plata, te vas a quedar corto.</div>
+    </section>
+
+    <section>
+      <h2>Cómo sube la retención hasta 2028</h2>
+      <div class="tabla-scroll">
+        <table>
+          <thead><tr><th>Año</th><th class="num">Retención</th><th class="num">De $1.000.000 recibes</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td class="num">14,50 %</td><td class="num">$855.000</td></tr>
+            <tr style="background:var(--acento-suave);font-weight:700"><td>2026</td><td class="num">15,25 %</td><td class="num">$847.500</td></tr>
+            <tr><td>2027</td><td class="num">16,00 %</td><td class="num">$840.000</td></tr>
+            <tr><td>2028</td><td class="num">17,00 %</td><td class="num">$830.000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color:var(--suave);max-width:740px;margin-top:14px">No es un castigo: la tasa sube justamente para que la retención alcance a cubrir tus cotizaciones previsionales completas, que también van subiendo del 80 % al 100 % de cobertura. La tabla completa desde 2020 está en la <a href="retencion-honorarios.html">página de la retención</a>.</p>
+    </section>
+
+    <div class="anuncio" data-slot="inarticle" data-formato="fluid"></div>
+
+    <section>
+      <h2>Programas para llevar tus boletas</h2>
+      <p class="sub">Si emites varias boletas al mes, conviene que el registro se lleve solo.</p>
+      <div data-afiliados="3"></div>
+    </section>
+
+    <section>
+      <div class="rejilla r2" style="gap:26px;align-items:center">
+        <div>
+          <h2>¿Y en abril, te devuelven o pagas?</h2>
+          <p class="sub">Esa retención acumulada se cruza con tus cotizaciones. Calcula si te sobra o te falta.</p>
+          <a class="boton grande" href="operacion-renta.html">Calcular mi Operación Renta</a>
+        </div>
+        <div data-boletin></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div>
+      <a class="logo" href="index.html"><span class="logo-marca">H</span> Honorarios Simple</a>
+      <p style="color:var(--suave);font-size:14.5px;max-width:340px;margin-top:10px">Calculadoras gratuitas para quien trabaja a honorarios en Chile. Todo se calcula en tu navegador.</p>
+    </div>
+    <div>
+      <h4>Calculadoras</h4>
+      <ul>
+        <li><a href="boleta-honorarios.html">Boleta de honorarios</a></li>
+        <li><a href="retencion-honorarios.html">Retención de honorarios</a></li>
+        <li><a href="operacion-renta.html">Operación Renta y cotizaciones</a></li>
+        <li><a href="precio-hora.html">Precio por hora</a></li>
+        <li><a href="calculadora-iva.html">Calculadora de IVA 19 %</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Guías</h4>
+      <ul>
+        <li><a href="guia-boleta-honorarios.html">Cómo funciona la boleta</a></li>
+        <li><a href="gastos-honorarios.html">Gastos que puedes rebajar</a></li>
+        <li><a href="https://www.sii.cl/destacados/boletas_honorarios/" rel="nofollow noopener" target="_blank">Emitir boleta en el SII</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Más</h4>
+      <ul>
+        <li><a href="legal.html">Aviso legal y privacidad</a></li>
+        <li><a href="es/index.html">Versión España</a></li>
+      </ul>
+    </div>
+    <div class="legal" style="grid-column:1/-1">© <span data-anio></span> Honorarios Simple. Contenido informativo, no asesoría tributaria.</div>
+  </div>
+</footer>
+
+<script src="js/config.js?v=5"></script>
+<script src="js/config-cl.js?v=5"></script>
+<script src="js/app.js?v=5"></script>
+<script src="js/calculadoras-cl.js?v=5"></script>
+</body>
+</html>

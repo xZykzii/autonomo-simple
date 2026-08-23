@@ -1,3 +1,6 @@
 # ads.txt — evita que otros vendan inventario falso con tu nombre.
-# Descomenta la línea de abajo y sustituye pub-0000000000000000 por tu ID de AdSense.
+# Hoy no hace nada: el sitio no tiene AdSense activo y GitHub Pages no sirve
+# este archivo en la raíz del dominio (xzykzii.github.io/ads.txt), que es
+# donde lo busca Google. Cuando tengas dominio propio, súbelo a la raíz de
+# ese dominio y descomenta la línea de abajo con tu ID de editor.
 # google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

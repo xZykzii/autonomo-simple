@@ -25,17 +25,21 @@
 
   function bannerCookies() {
     if (consentimiento()) return;
+    // Sin anuncios configurados no hay nada que consentir: la analítica es
+    // agregada y anónima. Molestar con un banner inútil solo hace perder gente.
+    var ads = window.ADS || {};
+    if (!ads.activo || !ads.cliente) return;
     var banner = el('div', { class: 'cookies', role: 'dialog', 'aria-label': 'Cookies' }, []);
     banner.innerHTML =
-      '<strong>Cookies</strong><p style="margin:6px 0 0">Usamos cookies propias y de terceros para medir el tráfico y mostrar publicidad. ' +
-      'Las calculadoras funcionan igual si las rechazas.</p>' +
+      '<strong>Publicidad</strong><p style="margin:6px 0 0">Usamos cookies de terceros para mostrar anuncios. ' +
+      'La medición de visitas es anónima y las calculadoras funcionan igual si los rechazas.</p>' +
       '<div class="acciones"><button class="boton" data-c="si">Aceptar</button>' +
       '<button class="boton fantasma" data-c="no">Rechazar</button></div>';
     banner.addEventListener('click', function (ev) {
       var b = ev.target.closest('[data-c]'); if (!b) return;
       guardarConsentimiento(b.dataset.c === 'si' ? 'aceptado' : 'rechazado');
       banner.remove();
-      if (b.dataset.c === 'si') { cargarAnuncios(); cargarAnalitica(); }
+      if (b.dataset.c === 'si') cargarAnuncios();
     });
     document.body.appendChild(banner);
   }
@@ -72,7 +76,13 @@
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
-    window.gtag('config', id);
+    // Medición propia y agregada: sin señales de publicidad y con la IP
+    // anonimizada, para no depender del consentimiento.
+    window.gtag('config', id, {
+      anonymize_ip: true,
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false
+    });
   }
 
   /** Evento de conversión: clic en afiliado, compra o descarga. */
@@ -111,7 +121,15 @@
   /* ---------------- producto propio ---------------- */
   function pintarPro() {
     var cont = $('[data-pro]');
-    if (!cont || !(window.PRO || {}).activo) return;
+    if (!cont) return;
+    // Sin producto real no se anuncia nada: se esconde la sección entera en
+    // vez de dejar un botón de compra que no lleva a ninguna parte.
+    var p0 = window.PRO || {};
+    if (!p0.activo || !p0.checkout) {
+      var seccion = cont.closest('section');
+      (seccion || cont).style.display = 'none';
+      return;
+    }
     var p = window.PRO;
     var caja = el('div', { class: 'pro' });
     caja.innerHTML =
@@ -195,8 +213,9 @@
     pintarAfiliados();
     pintarPro();
     pintarBoletin();
+    cargarAnalitica();          // siempre: sin ella no sabemos si esto funciona
     bannerCookies();
-    if (consentimiento() === 'aceptado') { cargarAnuncios(); cargarAnalitica(); }
+    if (consentimiento() === 'aceptado') cargarAnuncios();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', iniciar);

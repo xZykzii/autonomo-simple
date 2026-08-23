@@ -1,139 +1,21 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Calculadora de retención de IRPF en factura (15 % y 7 %) | Autónomo Simple</title>
-<meta name="description" content="Calcula la retención de IRPF de tus facturas y descubre cuánto te ingresan de verdad después del IVA y del 15 % o el 7 % de retención.">
-<link rel="canonical" href="https://xzykzii.github.io/autonomo-simple/retencion-irpf.html">
-<meta name="theme-color" content="#0f9d58">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f9d58'/><text y='72' x='50' font-size='62' text-anchor='middle' fill='white' font-family='system-ui' font-weight='bold'>A</text></svg>">
-<link rel="stylesheet" href="css/style.css?v=4">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"¿Cuándo aplico el 7 % de retención en vez del 15 %?","acceptedAnswer":{"@type":"Answer","text":"Puedes aplicar el 7 % durante el año en que te das de alta como autónomo y los dos siguientes, siempre que no hubieras ejercido ninguna actividad profesional en el año anterior al alta. Debes comunicárselo por escrito a tu cliente."}},
-{"@type":"Question","name":"¿Sobre qué importe se calcula la retención?","acceptedAnswer":{"@type":"Answer","text":"Sobre la base imponible, nunca sobre el total con IVA. Primero se suma el IVA a la base y después se resta la retención calculada sobre esa misma base."}}]}
-</script>
+<title>Esta página se mudó | Honorarios Simple</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://xzykzii.github.io/autonomo-simple/es/retencion-irpf.html">
+<meta http-equiv="refresh" content="0; url=es/retencion-irpf.html">
+<link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
-
-<header class="cabecera">
-  <div class="contenedor">
-    <a class="logo" href="index.html"><span class="logo-marca">A</span> Autónomo Simple</a>
-    <nav class="nav">
-      <a href="calculadora-iva.html">IVA</a>
-      <a href="retencion-irpf.html">IRPF</a>
-      <a href="cuota-autonomos.html">Cuota autónomos</a>
-      <a href="precio-hora.html">Precio/hora</a>
-      <a href="generador-facturas.html">Hacer una factura</a>
-      <a href="cl/index.html" class="pais">Ver Chile</a>
-    </nav>
-  </div>
-</header>
-
 <main>
-  <div class="contenedor">
-    <div class="principal">
-      <div class="miga"><a href="index.html">Inicio</a> › Retención de IRPF</div>
-      <h1>Retención de IRPF en factura</h1>
-      <p class="entradilla">Pon la base de tu factura y mira cuánto acaba entrando en tu cuenta después del IVA y de la retención. Spoiler: menos de lo que parece.</p>
-    </div>
-
-    <div class="anuncio" data-slot="cabecera" data-formato="horizontal"></div>
-
-    <section style="padding-top:14px">
-      <div class="rejilla r2" id="calc-irpf" style="gap:24px;align-items:start">
-        <div class="tarjeta">
-          <div class="campo">
-            <label for="irpf-base">Base imponible <span class="ayuda">— tu trabajo, sin impuestos</span></label>
-            <input id="irpf-base" type="number" step="0.01" min="0" value="1000" inputmode="decimal">
-          </div>
-          <div class="campo">
-            <label>Tipo de IVA</label>
-            <div class="pastillas" id="irpf-iva"></div>
-          </div>
-          <div class="campo">
-            <label>Retención de IRPF</label>
-            <div class="pastillas" id="irpf-tipo"></div>
-          </div>
-        </div>
-        <div class="resultado" id="irpf-salida"></div>
-      </div>
-    </section>
-
-    <section>
-      <h2>¿Cuándo tengo que retener?</h2>
-      <p style="color:var(--suave);max-width:740px">Solo cuando facturas a <strong>empresas, otros autónomos o administraciones</strong> establecidos en España. Si tu cliente es un particular, no se retiene nada: le cobras base + IVA y punto. Si facturas al extranjero, tampoco.</p>
-      <div class="tabla-scroll">
-        <table>
-          <thead><tr><th>Tu cliente</th><th>IVA</th><th>Retención</th></tr></thead>
-          <tbody>
-            <tr><td>Empresa o autónomo en España</td><td>Sí</td><td>Sí, 15 % (o 7 %)</td></tr>
-            <tr><td>Particular en España</td><td>Sí</td><td>No</td></tr>
-            <tr><td>Empresa en la UE con NIF-IVA</td><td>No (inversión del sujeto pasivo)</td><td>No</td></tr>
-            <tr><td>Cliente fuera de la UE</td><td>No</td><td>No</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="aviso"><strong>El 7 % no es automático.</strong> Puedes aplicarlo el año del alta y los dos siguientes, si no ejerciste actividad profesional el año anterior. Tienes que comunicárselo por escrito al cliente; si no, te aplicará el 15 %.</div>
-    </section>
-
-    <section>
-      <h2>La retención no es un gasto, es un anticipo</h2>
-      <p style="color:var(--suave);max-width:740px">Ese 15 % que tu cliente te descuenta se lo ingresa a Hacienda a tu nombre. Cuando hagas la declaración de la renta se te descuenta de lo que debes, así que mucha gente que retiene todo el año acaba con la renta a devolver. Lo que sí duele es el efecto en la caja: cobras un 15 % menos cada mes.</p>
-    </section>
-
-    <div class="anuncio" data-slot="inarticle" data-formato="fluid"></div>
-
-    <section>
-      <h2>Que no se te escape ningún gasto deducible</h2>
-      <p class="sub">Cada gasto que no te aplicas es dinero que regalas. Estos servicios los revisan por ti.</p>
-      <div data-afiliados="3"></div>
-    </section>
-
-    <section>
-      <div class="rejilla r2" style="gap:26px;align-items:center">
-        <div>
-          <h2>Emite la factura con la retención puesta</h2>
-          <p class="sub">El generador aplica el IVA por línea y descuenta el IRPF sobre la base, como debe ser. PDF en un clic.</p>
-          <a class="boton grande" href="generador-facturas.html">Crear factura</a>
-        </div>
-        <div data-boletin></div>
-      </div>
-    </section>
+  <div class="contenedor" style="text-align:center;padding:90px 20px">
+    <h1 style="font-size:28px;letter-spacing:-.03em">Esta página cambió de sitio</h1>
+    <p style="color:var(--suave)">El contenido de Chile ahora vive en la portada. Si no te lleva sola en un segundo:</p>
+    <p><a class="boton grande" href="es/retencion-irpf.html">Ir a la página nueva</a></p>
   </div>
 </main>
-
-<footer class="pie">
-  <div class="contenedor">
-    <div>
-      <a class="logo" href="index.html"><span class="logo-marca">A</span> Autónomo Simple</a>
-      <p style="color:var(--suave);font-size:14.5px;max-width:340px;margin-top:10px">Herramientas gratuitas para quien factura por su cuenta.</p>
-    </div>
-    <div>
-      <h4>Calculadoras</h4>
-      <ul>
-        <li><a href="calculadora-iva.html">Calculadora de IVA</a></li>
-        <li><a href="retencion-irpf.html">Retención de IRPF</a></li>
-        <li><a href="cuota-autonomos.html">Cuota de autónomos</a></li>
-        <li><a href="precio-hora.html">Precio por hora</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Más</h4>
-      <ul>
-        <li><a href="generador-facturas.html">Generador de facturas</a></li>
-        <li><a href="index.html#pro">Pack Autónomo Pro</a></li>
-        <li><a href="cl/index.html">Versión Chile</a></li>
-        <li><a href="legal.html">Aviso legal y privacidad</a></li>
-      </ul>
-    </div>
-    <div class="legal" style="grid-column:1/-1">© <span data-anio></span> Autónomo Simple. Contenido informativo, no asesoramiento fiscal.</div>
-  </div>
-</footer>
-
-<script src="js/config.js?v=4"></script>
-<script src="js/app.js?v=4"></script>
-<script src="js/calculadoras.js?v=4"></script>
 </body>
 </html>

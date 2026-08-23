@@ -31,18 +31,38 @@
     return '<div class="linea ' + (clase || '') + '"><span>' + etq + '</span><strong>' + val + '</strong></div>';
   }
 
+  /* Tasa de retención de un año concreto, según el calendario de la ley 21.133. */
+  function tasaDelAnio(anio) {
+    var cal = window.CL.calendarioRetencion || [];
+    for (var i = 0; i < cal.length; i++) if (cal[i].anio === anio) return cal[i].tasa;
+    return window.CL.retencionBoleta;
+  }
+
   /* ============ 1. BOLETA DE HONORARIOS ============ */
   function calcBoleta() {
     var raiz = $('#calc-boleta'); if (!raiz) return;
     var monto = $('#b-monto', raiz);
     var modo = $('#b-modo', raiz);
+    var anios = $('#b-anio', raiz);          // opcional: selector de año
     var salida = $('#b-salida', raiz);
-    var tasa = window.CL.retencionBoleta;
+
+    /* El selector de año se pinta solo desde config-cl.js, para que añadir
+       un año nuevo sea cambiar una sola línea en la configuración. */
+    if (anios) {
+      var lista = window.CL.aniosSelector || [window.CL.anio];
+      anios.innerHTML = lista.map(function (a) {
+        return '<button type="button" class="pastilla' + (a === window.CL.anio ? ' on' : '') +
+               '" data-valor="' + a + '">' + a + '</button>';
+      }).join('');
+      pastillas(anios, calcular);
+    }
 
     pastillas(modo, calcular);
     monto.addEventListener('input', calcular);
 
     function calcular() {
+      var anio = anios ? valorPastilla(anios) : window.CL.anio;
+      var tasa = tasaDelAnio(anio);
       var v = n(monto.value);
       var desdeBruto = valorPastilla(modo) === 1;
       var bruto, retencion, liquido;
@@ -50,15 +70,20 @@
       if (desdeBruto) { bruto = v; retencion = bruto * tasa / 100; liquido = bruto - retencion; }
       else { liquido = v; bruto = liquido / (1 - tasa / 100); retencion = bruto - liquido; }
 
+      var futuro = anio > window.CL.anio;
       salida.innerHTML =
         '<div class="etiqueta">' + (desdeBruto ? 'Recibes en tu cuenta' : 'Debes emitir por') + '</div>' +
         '<div class="grande">' + pesos(desdeBruto ? liquido : bruto) + '</div>' +
         '<div class="desglose">' +
         linea('Monto bruto de la boleta', pesos(bruto)) +
-        linea('Retención (' + dec.format(tasa) + ' %)', '−' + pesos(retencion)) +
+        linea('Retención ' + anio + ' (' + dec.format(tasa) + ' %)', '−' + pesos(retencion)) +
         linea('Líquido que recibes', pesos(liquido), 'total') +
         '</div>' +
-        '<p style="font-size:13.5px;color:var(--suave);margin:14px 0 0">Esa retención no se pierde: el SII la guarda a tu nombre. En la Operación Renta se usa primero para pagar tus cotizaciones previsionales y, si sobra, te la devuelven.</p>';
+        '<p style="font-size:13.5px;color:var(--suave);margin:14px 0 0">' +
+        (futuro
+          ? 'Tasa ya fijada por la ley 21.133 para ' + anio + ', aunque todavía no esté vigente.'
+          : 'Esa retención no se pierde: el SII la guarda a tu nombre. En la Operación Renta se usa primero para pagar tus cotizaciones previsionales y, si sobra, te la devuelven.') +
+        '</p>';
     }
     calcular();
   }

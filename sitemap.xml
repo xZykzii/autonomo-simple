@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- España -->
+  <!-- Chile: sección principal -->
   <url><loc>https://xzykzii.github.io/autonomo-simple/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://xzykzii.github.io/autonomo-simple/generador-facturas.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://xzykzii.github.io/autonomo-simple/cuota-autonomos.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://xzykzii.github.io/autonomo-simple/calculadora-iva.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://xzykzii.github.io/autonomo-simple/retencion-irpf.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://xzykzii.github.io/autonomo-simple/precio-hora.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://xzykzii.github.io/autonomo-simple/boleta-honorarios.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://xzykzii.github.io/autonomo-simple/retencion-honorarios.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://xzykzii.github.io/autonomo-simple/operacion-renta.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://xzykzii.github.io/autonomo-simple/guia-boleta-honorarios.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://xzykzii.github.io/autonomo-simple/gastos-honorarios.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://xzykzii.github.io/autonomo-simple/precio-hora.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://xzykzii.github.io/autonomo-simple/calculadora-iva.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://xzykzii.github.io/autonomo-simple/legal.html</loc><priority>0.2</priority><changefreq>yearly</changefreq></url>
 
-  <!-- Chile -->
-  <url><loc>https://xzykzii.github.io/autonomo-simple/cl/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://xzykzii.github.io/autonomo-simple/cl/boleta-honorarios.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://xzykzii.github.io/autonomo-simple/cl/cotizaciones.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://xzykzii.github.io/autonomo-simple/cl/calculadora-iva.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://xzykzii.github.io/autonomo-simple/cl/precio-hora.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://xzykzii.github.io/autonomo-simple/cl/guia-boleta-honorarios.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <!-- España: sección en mantenimiento -->
+  <url><loc>https://xzykzii.github.io/autonomo-simple/es/</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://xzykzii.github.io/autonomo-simple/es/generador-facturas.html</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://xzykzii.github.io/autonomo-simple/es/cuota-autonomos.html</loc><priority>0.4</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://xzykzii.github.io/autonomo-simple/es/calculadora-iva.html</loc><priority>0.4</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://xzykzii.github.io/autonomo-simple/es/retencion-irpf.html</loc><priority>0.4</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://xzykzii.github.io/autonomo-simple/es/precio-hora.html</loc><priority>0.4</priority><changefreq>monthly</changefreq></url>
 
 </urlset>

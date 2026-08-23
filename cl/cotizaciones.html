@@ -3,132 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cotizaciones de independientes 2026 — ¿te devuelven o pagas en la Operación Renta?</title>
-<meta name="description" content="Calcula tus cotizaciones previsionales como independiente en 2026: AFP, salud, SIS y accidentes sobre el 80 % de tus honorarios, y si la retención te alcanza o te toca pagar.">
-<link rel="canonical" href="https://xzykzii.github.io/autonomo-simple/cl/cotizaciones.html">
-<meta name="theme-color" content="#0f9d58">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f9d58'/><text y='72' x='50' font-size='62' text-anchor='middle' fill='white' font-family='system-ui' font-weight='bold'>A</text></svg>">
-<link rel="stylesheet" href="../css/style.css?v=4">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"¿Sobre qué monto cotiza un trabajador independiente en 2026?","acceptedAnswer":{"@type":"Answer","text":"Sobre la renta imponible, que corresponde al 80 % de los honorarios brutos anuales si se elige cobertura parcial, o al 100 % con cobertura total. Ese porcentaje sube cada año hasta ser 100 % obligatorio en la Operación Renta 2028."}},
-{"@type":"Question","name":"¿Qué cotizaciones paga un independiente?","acceptedAnswer":{"@type":"Answer","text":"Salud (7 % a Fonasa o Isapre), AFP (10 % más la comisión de la administradora), el seguro de invalidez y sobrevivencia (1,15 %) y el seguro de accidentes del trabajo de la ley 16.744 (0,95 % más el recargo según el riesgo de la actividad)."}}]}
-</script>
+<title>Esta página se mudó | Honorarios Simple</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://xzykzii.github.io/autonomo-simple/operacion-renta.html">
+<meta http-equiv="refresh" content="0; url=../operacion-renta.html">
+<link rel="stylesheet" href="../css/style.css?v=5">
 </head>
 <body>
-
-<header class="cabecera">
-  <div class="contenedor">
-    <a class="logo" href="index.html"><span class="logo-marca">A</span> Autónomo Simple</a>
-    <nav class="nav">
-      <a href="boleta-honorarios.html">Boleta de honorarios</a>
-      <a href="cotizaciones.html">Cotizaciones</a>
-      <a href="calculadora-iva.html">IVA</a>
-      <a href="precio-hora.html">Precio/hora</a>
-      <a href="guia-boleta-honorarios.html">Guía</a>
-      <a href="../index.html" class="pais">Ver España</a>
-    </nav>
-  </div>
-</header>
-
 <main>
-  <div class="contenedor">
-    <div class="principal">
-      <div class="miga"><a href="index.html">Chile</a> › Cotizaciones</div>
-      <h1>Cotizaciones y Operación Renta 2026</h1>
-      <p class="entradilla">La pregunta de todos los abriles: ¿la plata que me retuvieron alcanza para pagar mis cotizaciones, o voy a tener que poner de mi bolsillo?</p>
-    </div>
-
-    <div class="anuncio" data-slot="cabecera" data-formato="horizontal"></div>
-
-    <section style="padding-top:14px">
-      <div class="rejilla r2" id="calc-cotiza" style="gap:24px;align-items:start">
-        <div class="tarjeta">
-          <div class="campo">
-            <label for="c-brutos">Honorarios brutos del año <span class="ayuda">— la suma de todas tus boletas</span></label>
-            <input id="c-brutos" type="number" step="100000" min="0" value="12000000" inputmode="numeric">
-          </div>
-          <div class="campo">
-            <label>Cobertura previsional</label>
-            <div class="pastillas" id="c-cobertura">
-              <button type="button" class="pastilla on" data-valor="80">Parcial (80 %)</button>
-              <button type="button" class="pastilla" data-valor="100">Total (100 %)</button>
-            </div>
-          </div>
-          <div class="campo">
-            <label for="c-comision">Comisión de tu AFP (%) <span class="ayuda">— revísala, cada una cobra distinto</span></label>
-            <input id="c-comision" type="number" step="0.01" min="0" max="3" value="1.2">
-          </div>
-          <p style="font-size:13px;color:var(--suave);margin:4px 0 0">La cobertura parcial es la opción por defecto en 2026 y sube cada año hasta el 100 % obligatorio en 2028.</p>
-        </div>
-        <div class="resultado" id="c-salida"></div>
-      </div>
-    </section>
-
-    <section>
-      <h2>En qué se te va la retención</h2>
-      <p class="sub">Desglose de cada cotización sobre tu renta imponible.</p>
-      <div class="tabla-scroll"><table id="c-detalle"></table></div>
-      <div class="aviso"><strong>Esto es una estimación, no tu declaración.</strong> No incluye el impuesto global complementario, que depende de todas tus rentas del año y puede cambiar el resultado en ambos sentidos. El cálculo oficial lo hace el SII con tus datos reales.</div>
-    </section>
-
-    <section>
-      <h2>El orden en que se paga</h2>
-      <p style="color:var(--suave);max-width:740px">En la Operación Renta el SII toma toda la plata que te retuvieron durante el año y la reparte en este orden: primero el seguro de invalidez y sobrevivencia, después el de accidentes del trabajo, luego la salud y al final la AFP. Si la retención alcanza para todo y sobra, esa diferencia te la devuelven. Si no alcanza, tus cotizaciones se pagan en proporción a lo que hubo y quedas cubierto por menos meses.</p>
-      <p style="color:var(--suave);max-width:740px">Por eso subir la retención año a año no es recaudación disfrazada: es lo que permite que un independiente termine con doce meses cotizados en vez de siete.</p>
-    </section>
-
-    <div class="anuncio" data-slot="inarticle" data-formato="fluid"></div>
-
-    <section>
-      <h2>Para no llegar a abril a ciegas</h2>
-      <p class="sub">Estos programas registran tus boletas y gastos durante todo el año.</p>
-      <div data-afiliados="3"></div>
-    </section>
-
-    <section>
-      <div class="rejilla r2" style="gap:26px;align-items:center">
-        <div>
-          <h2>¿Cuánto deberías cobrar entonces?</h2>
-          <p class="sub">Si las cotizaciones salen de tu bolsillo, tu tarifa tiene que contemplarlas. Calcula tu piso real.</p>
-          <a class="boton grande" href="precio-hora.html">Calcular mi precio por hora</a>
-        </div>
-        <div data-boletin></div>
-      </div>
-    </section>
+  <div class="contenedor" style="text-align:center;padding:90px 20px">
+    <h1 style="font-size:28px;letter-spacing:-.03em">Esta página cambió de sitio</h1>
+    <p style="color:var(--suave)">El contenido de Chile ahora vive en la portada. Si no te lleva sola en un segundo:</p>
+    <p><a class="boton grande" href="../operacion-renta.html">Ir a la página nueva</a></p>
   </div>
 </main>
-
-<footer class="pie">
-  <div class="contenedor">
-    <div>
-      <a class="logo" href="index.html"><span class="logo-marca">A</span> Autónomo Simple</a>
-      <p style="color:var(--suave);font-size:14.5px;max-width:340px;margin-top:10px">Herramientas gratuitas para quien trabaja por su cuenta.</p>
-    </div>
-    <div>
-      <h4>Chile</h4>
-      <ul>
-        <li><a href="boleta-honorarios.html">Boleta de honorarios</a></li>
-        <li><a href="cotizaciones.html">Cotizaciones</a></li>
-        <li><a href="calculadora-iva.html">Calculadora de IVA</a></li>
-        <li><a href="precio-hora.html">Precio por hora</a></li>
-        <li><a href="guia-boleta-honorarios.html">Guía de la boleta de honorarios</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Más</h4>
-      <ul>
-        <li><a href="../index.html">Versión España</a></li>
-        <li><a href="../legal.html">Aviso legal y privacidad</a></li>
-      </ul>
-    </div>
-    <div class="legal" style="grid-column:1/-1">© <span data-anio></span> Autónomo Simple. Contenido informativo, no asesoría tributaria.</div>
-  </div>
-</footer>
-
-<script src="../js/config.js?v=4"></script>
-<script src="js/config-cl.js?v=4"></script>
-<script src="../js/app.js?v=4"></script>
-<script src="js/calculadoras-cl.js?v=4"></script>
 </body>
 </html>

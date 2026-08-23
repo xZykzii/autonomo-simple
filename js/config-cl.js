@@ -1,6 +1,7 @@
 /* =========================================================================
-   DATOS TRIBUTARIOS DE CHILE — sección /cl/
-   Revisar cada enero. Cada cifra lleva anotado de dónde sale.
+   CHILE — sección principal del sitio (raíz)
+   Se carga DESPUÉS de config.js. Revisar cada enero: cada cifra lleva
+   anotado de dónde sale.
    ========================================================================= */
 
 window.CL = {
@@ -12,11 +13,18 @@ window.CL = {
      2025: 14,5 % · 2026: 15,25 % · 2027: 16 % · 2028: 17 % */
   retencionBoleta: 15.25,
   calendarioRetencion: [
+    { anio: 2020, tasa: 10.75 },
+    { anio: 2021, tasa: 11.5 },
+    { anio: 2022, tasa: 12.25 },
+    { anio: 2023, tasa: 13 },
+    { anio: 2024, tasa: 13.75 },
     { anio: 2025, tasa: 14.5 },
     { anio: 2026, tasa: 15.25 },
     { anio: 2027, tasa: 16 },
     { anio: 2028, tasa: 17 }
   ],
+  /* Años que se ofrecen en el selector de las calculadoras. */
+  aniosSelector: [2024, 2025, 2026, 2027, 2028],
 
   /* IVA. Solo aplica a quien emite factura (primera categoría);
      las boletas de honorarios NO llevan IVA. */
@@ -38,6 +46,12 @@ window.CL = {
     salud: 7          // Fonasa o Isapre
   },
 
+  /* Gastos de la renta de segunda categoría (art. 50 LIR).
+     O rebajas el 30 % de tus ingresos brutos SIN acreditar nada, con tope de
+     15 UTA, o acreditas tus gastos efectivos con documentos. No las dos.
+     La UTA la publica el SII cada año: por eso aquí solo va el tope en UTA. */
+  gastosPresuntos: { pct: 30, topeUTA: 15 },
+
   /* Tope imponible anual de la Operación Renta 2026:
      87,8 UF mensuales × 12 = 1.053,6 UF ≈ $41.857.379 */
   topeImponibleAnual: 41857379,
@@ -50,8 +64,8 @@ window.CL = {
 };
 
 /* -------------------------------------------------------------------------
-   Este archivo se carga DESPUÉS de ../js/config.js y ANTES de ../js/app.js,
-   así que lo que se redefina aquí abajo solo afecta a la sección chilena.
+   Bloques de monetización de la sección chilena. Se cargan después de
+   config.js y antes de app.js.
    ------------------------------------------------------------------------- */
 
 /* Programas de contabilidad y facturación usados en Chile.
@@ -89,7 +103,9 @@ window.AFILIADOS = [
 
 /* Producto propio adaptado a Chile */
 window.PRO = {
-  activo: true,
+  /* En false hasta que el producto exista de verdad y `checkout` tenga URL:
+     mientras tanto la sección entera no se pinta. */
+  activo: false,
   nombre: 'Pack Independiente Pro',
   precio: '$14.900',
   precioTachado: '$29.900',
@@ -103,12 +119,11 @@ window.PRO = {
   checkout: ''   // <-- pega aquí tu enlace de pago (Gumroad, Lemon Squeezy, Flow, Webpay)
 };
 
-/* Mismo formulario de Google que la sección española: una sola lista.
-   Solo cambia el gancho, para que hable el idioma de acá. */
+/* Mismo formulario de Google que la sección española: una sola lista. */
 window.NEWSLETTER = {
   activo: true,
   tipo: 'google-forms',
   action: 'https://docs.google.com/forms/d/e/1FAIpQLScvuLREgUstRatZ5xuSwNH_-RSLSj-5pXypRtdX2oHOCcW4jw/formResponse',
   campoEmail: 'entry.1076558109',
-  gancho: 'Te aviso cuando cambie la retención, las cotizaciones o la Operación Renta'
+  gancho: 'Te aviso antes de la Operación Renta y cuando cambie la retención'
 };
